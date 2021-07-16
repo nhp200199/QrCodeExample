@@ -4,15 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1E36C"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/edtContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Input Your Content"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGenerateQrCode">
+
+        <com.vipulasri.ticketview.TicketView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:ticketCornerRadius="10dp"
+            app:ticketCornerType="rounded"
+            app:ticketDividerPadding="10dp"
+            app:ticketDividerType="dash"
+            app:ticketElevation="14dp"
+            app:ticketOrientation="horizontal"
+            app:ticketScallopPositionPercent="30"
+            app:ticketScallopRadius="10dp"
+            app:ticketShowBorder="true"
+            app:ticketShowDivider="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="Here is your QR Code" />
+
+            <ImageView
+                android:id="@+id/imgQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:paddingVertical="24dp"
+                android:src="@mipmap/ic_launcher" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edtContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="80dp"
+        android:text="Generate QR Code"
+        android:id="@+id/btnGenerateQrCode"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
